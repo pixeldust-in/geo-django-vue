@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% load render_bundle from webpack_loader %}
+
+{% block base_css %}
+{% endblock base_css %}
+
+{% block body  %}
+<body>
+    <div id="app"></div>
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'app' %}
+</body>
+{% endblock body  %}

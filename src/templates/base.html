@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title> Geo Django </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600&display=swap"
+      rel="stylesheet"
+    /> -->
+    {% block base_css %}
+    {% endblock base_css %}
+
+    {% block css %}
+        <!-- To be used in child templates only -->
+    {% endblock css %}
+  </head>
+
+  {% block body %}
+  <body>
+    {% block content %}
+    {% endblock content %}
+  </body>
+  {% endblock body %}
+
+</html>

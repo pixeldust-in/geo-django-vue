@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # Thirdpaty
     "django_extensions",
     "rest_framework",
+    "webpack_loader",
     # custom
     "core",
     # Keep this at the end
@@ -259,3 +260,8 @@ else:
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SECURE_REFERRER_POLICY = "same-origin"
     SECURE_BROWSER_XSS_FILTER = True
+
+
+WEBPACK_LOADER = {
+    "DEFAULT": {"STATS_FILE": os.path.join(BASE_DIR, "frontend/webpack-stats.json")},
+}

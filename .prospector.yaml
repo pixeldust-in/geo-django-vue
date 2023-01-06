@@ -1,0 +1,12 @@
+allow-shorthand: false
+
+inherits:
+  - strictness_medium
+
+pylint:
+  disable:
+    - logging-fstring-interpolation
+    - arguments-differ
+    - protected-access
+    - unused-argument
+    - logging-too-many-args

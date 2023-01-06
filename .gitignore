@@ -115,3 +115,4 @@ app/webpack-stats.json
 #env files
 .azure-*.env
 !deploy/docker/**/.azure-*.env
+webpack-stats.json

@@ -268,3 +268,6 @@ else:
 WEBPACK_LOADER = {
     "DEFAULT": {"STATS_FILE": os.path.join(BASE_DIR, "frontend/webpack-stats.json")},
 }
+
+GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY", default=None)
+LEAFLET_CONFIG = {"PLUGINS": {"forms": {"auto-include": True}}, "RESET_VIEW": False}

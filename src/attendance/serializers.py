@@ -14,15 +14,11 @@ class ReadOnlyModelSerializer(serializers.ModelSerializer):
 
 
 class UserAttendanceListSerializer(ReadOnlyModelSerializer):
+    formatted_address = serializers.CharField()
+
     class Meta:
         model = models.Attendance
-        exclude = (
-            "id",
-            "created",
-            "modified",
-            "user",
-            "location_meta",
-        )
+        exclude = ("id", "created", "modified", "user", "location", "location_meta")
 
 
 def today_date():

@@ -2,9 +2,12 @@
   <div class="w-[800px] mx-auto">
     <div class="text-left mb-12">
       <div class="mb-1">Today's Attendance:</div>
-      <div v-if="userAttedance.todayAttendance">
+      <div class="mb-2" v-if="userAttedance.todayAttendance">
         Checked In @ {{ userAttedance?.todayAttendance?.check_in }}
-        <div v-if="userAttedance?.todayAttendance?.check_out">
+        <div class="mb-2" v-if="userAttedance.todayAttendance?.formatted_address">
+          Location: {{userAttedance.todayAttendance?.formatted_address}}
+        </div>
+        <div class="mb-2" v-if="userAttedance?.todayAttendance?.check_out">
           Checked out @ {{ userAttedance?.todayAttendance?.check_out }}
         </div>
         <button
@@ -63,7 +66,12 @@
       </div>
     </div>
     <hr />
+    <div class="text-lg font-bold">
+      Attendance History:
+      <hr />
+  </div>
     <div class="flex items-center justify-center">
+
       <div class="overflow-x-auto w-full">
         <table class="min-w-full">
           <thead class="border-b">
@@ -160,6 +168,7 @@
                 whitespace-nowrap
               "
             >
+            {{ att.formatted_address }}
             </td>
             </tr>
           </tbody>

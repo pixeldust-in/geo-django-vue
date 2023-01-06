@@ -1,10 +1,10 @@
 bandit
 black
+django-debug-toolbar
+django-sslserver
 ipdb
 isort
 jupyterlab
 pre-commit
 prospector
 SQLAlchemy
-django-sslserver
-django-debug-toolbar

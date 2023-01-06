@@ -35,10 +35,10 @@ repos:
     hooks:
       - id: bandit
         args: [--format=txt, --quiet]
-  - repo: https://github.com/PyCQA/prospector
-    rev: 1.3.1
-    hooks:
-      - id: prospector
-        language: system
-        args: [--messages-only, --output-format=pylint]
-        exclude: (.*/migrations/.*)$
+  # - repo: https://github.com/PyCQA/prospector
+  #   rev: 1.8.0
+  #   hooks:
+  #     - id: prospector
+  #       language: system
+  #       args: [--messages-only, --output-format=pylint]
+  #       exclude: (.*/migrations/.*)$

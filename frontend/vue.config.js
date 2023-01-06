@@ -26,13 +26,3 @@ module.exports = defineConfig({
       config.plugins.push(new BundleTracker());
     }
 })
-
-
-
-// module.exports = {
-//   transpileDependencies: true,
-
-//
-//
-//
-// }

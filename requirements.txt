@@ -18,7 +18,7 @@ drf-extra-fields==3.4.*
 
 # Production Server
 gunicorn==19.9.*
-Pillow==8.3.2
+Pillow==9.4.0
 
 # Custom Pixeldust Package
 

@@ -57,12 +57,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "djgeojson",
     # Thirdpaty
     "django_extensions",
     "rest_framework",
     "webpack_loader",
+    "leaflet",
     # custom
     "core",
+    "attendance",
     # Keep this at the end
     "django_cleanup.apps.CleanupConfig",
 ]

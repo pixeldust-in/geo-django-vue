@@ -1,10 +1,11 @@
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.views import LoginView
 from django.urls import include, path, re_path
-from django.views.generic import TemplateView
 from rest_framework import routers
 
 from attendance.urls import router as attendance_router
+from core import views as core_views
 
 if settings.DEBUG:
     router = routers.DefaultRouter()
@@ -18,7 +19,17 @@ urlpatterns = [
     # apps
     path("api/", include(router.urls)),
     path("api/attendance/", include("attendance.urls")),
-    re_path(r"app.*", TemplateView.as_view(template_name="app.html"), name="home"),
+    path("", core_views.root, name="home_redirect"),
+    re_path(r"^app.*", core_views.home, name="home"),
+    path(
+        "accounts/login/",
+        LoginView.as_view(
+            template_name="admin/login.html",
+            extra_context={
+                "site_header": "Geo Attendance App",
+            },
+        ),
+    ),
 ]
 
 

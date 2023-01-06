@@ -25,12 +25,23 @@ class UserAttendanceListSerializer(ReadOnlyModelSerializer):
         )
 
 
+def today_date():
+    return datetime.today().date()
+
+
+def current_time():
+    return datetime.now().strftime("%H:%M:%S")
+
+
 class UserAttendanceCheckinSerializer(serializers.ModelSerializer):
+    date = serializers.DateField(default=today_date)
+    check_in = serializers.DateTimeField(default=current_time)
+
     def validate(self, data):
         date = data.get("date")
-        if date != datetime.today():
+        if date != datetime.today().date():
             raise serializers.ValidationError(
-                {"message": "You can only check in today!"}
+                {"message": "You can check in for today only!"}
             )
         return data
 
@@ -47,10 +58,16 @@ class UserAttendanceCheckinSerializer(serializers.ModelSerializer):
 
 
 class UserAttendanceCheckoutSerializer(serializers.ModelSerializer):
+    check_out = serializers.DateTimeField(default=current_time)
+
     def validate(self, data):
         if self.instance.check_out:
             raise serializers.ValidationError(
                 {"message": "You have already checked out!"}
+            )
+        if self.instance.date != datetime.today().date():
+            raise serializers.ValidationError(
+                {"message": "You can check out for today only!"}
             )
         return data
 

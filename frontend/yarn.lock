@@ -966,14 +966,7 @@
   dependencies:
     "@googlemaps/markerclusterer" "^2.0.3"
 
-"@googlemaps/js-api-loader@^1.12.11":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.15.1.tgz#7d5f1d55a4ec5c99b1d8f0708f3a46b83a71384c"
-  integrity sha512-AsnEgNsB7S/VdrHGEQUaUM2e5tmjFGKBAfzR/AqO8O7TPq/jQGvoRw5liPBw4EMF38RDsHmKDV89q/X+qiUREQ==
-  dependencies:
-    fast-deep-equal "^3.1.3"
-
-"@googlemaps/markerclusterer@^2.0.3", "@googlemaps/markerclusterer@^2.0.6":
+"@googlemaps/markerclusterer@^2.0.3":
   version "2.0.15"
   resolved "https://registry.yarnpkg.com/@googlemaps/markerclusterer/-/markerclusterer-2.0.15.tgz#72052a23a061789c6055a13713b8852359cc03a9"
   integrity sha512-/I6Esi5FtyeVHsezN9Kut8zRJoqe7KkTIJXGVqpKFf6BjC7qQ1xRajLMkOz0s8XKgLevbr+KdYjuvmj+LohOGg==
@@ -2165,14 +2158,6 @@ babel-plugin-polyfill-regenerator@^0.4.1:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.3"
 
-babel-runtime@^6.26.0:
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
-  integrity sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g==
-  dependencies:
-    core-js "^2.4.0"
-    regenerator-runtime "^0.11.0"
-
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -2629,11 +2614,6 @@ core-js-compat@^3.25.1, core-js-compat@^3.8.3:
   integrity sha512-Dg91JFeCDA17FKnneN7oCMz4BkQ4TcffkgHP4OWwp9yx3pi7ubqMDXXSacfNak1PQqjc95skyt+YBLHQJnkJwA==
   dependencies:
     browserslist "^4.21.4"
-
-core-js@^2.4.0:
-  version "2.6.12"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
-  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-js@^3.8.3:
   version "3.27.1"
@@ -4389,11 +4369,6 @@ make-dir@^3.0.2, make-dir@^3.1.0:
   dependencies:
     semver "^6.0.0"
 
-marker-clusterer-plus@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/marker-clusterer-plus/-/marker-clusterer-plus-2.1.4.tgz#f8eff74d599dab3b7d0e3fed5264ea0e704f5d67"
-  integrity sha512-4WLZnYCkgsUfSC0pftldd0YrLNupSqVIEdxL979f3sXVMBHTUOF3gDa6cEuOk2z8UGyVGcANiNZgvVc333mrHA==
-
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
@@ -4405,9 +4380,9 @@ media-typer@0.3.0:
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
 
 memfs@^3.1.2, memfs@^3.4.3:
-  version "3.4.12"
-  resolved "https://registry.yarnpkg.com/memfs/-/memfs-3.4.12.tgz#d00f8ad8dab132dc277c659dc85bfd14b07d03bd"
-  integrity sha512-BcjuQn6vfqP+k100e0E9m61Hyqa//Brp+I3f0OBmN0ATHlFA8vx3Lt8z57R3u2bPqe3WGDBC+nF72fTH7isyEw==
+  version "3.4.13"
+  resolved "https://registry.yarnpkg.com/memfs/-/memfs-3.4.13.tgz#248a8bd239b3c240175cd5ec548de5227fc4f345"
+  integrity sha512-omTM41g3Skpvx5dSYeZIbXKcXoAVc/AoMNwn9TKx++L/gaen/+4TTttmu8ZSch5vfVJ8uJvGbroTsIlslRg6lg==
   dependencies:
     fs-monkey "^1.0.3"
 
@@ -5198,18 +5173,18 @@ postcss@^7.0.36:
     source-map "^0.6.1"
 
 postcss@^8.1.10, postcss@^8.2.6, postcss@^8.3.5, postcss@^8.4.18, postcss@^8.4.19, postcss@^8.4.20:
-  version "8.4.20"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.20.tgz#64c52f509644cecad8567e949f4081d98349dc56"
-  integrity sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==
+  version "8.4.21"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.21.tgz#c639b719a57efc3187b13a1d765675485f4134f4"
+  integrity sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==
   dependencies:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
 "prettier@^1.18.2 || ^2.0.0":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.1.tgz#4e1fd11c34e2421bc1da9aea9bd8127cd0a35efc"
-  integrity sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.2.tgz#c4ea1b5b454d7c4b59966db2e06ed7eec5dfd160"
+  integrity sha512-BtRV9BcncDyI2tsuS19zzhzoxD8Dh8LiCx7j7tHzrkz8GFXAexeWFdi22mjE1d16dftH2qNaytVxqiRTGlMfpw==
 
 pretty-bytes@^5.3.0, pretty-bytes@^5.4.1:
   version "5.6.0"
@@ -5374,11 +5349,6 @@ regenerate@^1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.2.tgz#b9346d8827e8f5a32f7ba29637d398b69014848a"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
-
-regenerator-runtime@^0.11.0:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
-  integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
 regenerator-runtime@^0.13.11:
   version "0.13.11"
@@ -6439,23 +6409,6 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue2-google-maps@^0.10.7:
-  version "0.10.7"
-  resolved "https://registry.yarnpkg.com/vue2-google-maps/-/vue2-google-maps-0.10.7.tgz#2e4c1239386001bd47777d8c6a0475e5320cc3a8"
-  integrity sha512-y5aBJTAsfGvpsbfgPaeWU7o7QbOeINZKsP6SB9qrBe8U8EYBFO/bTWo3rcMq/NOtgT/XssV3Nwg/2u3no6jWbw==
-  dependencies:
-    babel-runtime "^6.26.0"
-    marker-clusterer-plus "^2.1.4"
-
-vue3-google-map@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/vue3-google-map/-/vue3-google-map-0.15.0.tgz#83d996c23934ae06cd6d3e158fc2dd46ca7a18e1"
-  integrity sha512-Y0fyBa9feS3mFIsYnCdqGr2TQWtRAhs0Q2vTmrhD/kzyY9z7lqd5p8ZM+Axw7xsaUXP+NvvIdIP4TianIOubkQ==
-  dependencies:
-    "@googlemaps/js-api-loader" "^1.12.11"
-    "@googlemaps/markerclusterer" "^2.0.6"
-    fast-deep-equal "^3.1.3"
-
 vue@^3.2.13:
   version "3.2.45"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.45.tgz#94a116784447eb7dbd892167784619fef379b3c8"
@@ -6920,9 +6873,9 @@ ws@^7.3.1:
   integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
 
 ws@^8.4.2:
-  version "8.11.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.11.0.tgz#6a0d36b8edfd9f96d8b25683db2f8d7de6e8e143"
-  integrity sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.12.0.tgz#485074cc392689da78e1828a9ff23585e06cddd8"
+  integrity sha512-kU62emKIdKVeEIOIKVegvqpXMSTAMLJozpHZaJNDYqBjzlSYXQGviYwN1osDLJ9av68qHd4a2oSjd7yD4pacig==
 
 xtend@^4.0.2:
   version "4.0.2"

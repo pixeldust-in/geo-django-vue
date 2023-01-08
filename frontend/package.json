@@ -20,8 +20,6 @@
     "universal-cookie": "^4.0.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
-    "vue2-google-maps": "^0.10.7",
-    "vue3-google-map": "^0.15.0",
     "vuex": "^4.0.0",
     "webpack-bundle-tracker": "0.4.3"
   },

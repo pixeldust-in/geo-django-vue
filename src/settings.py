@@ -57,10 +57,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "djgeojson",
+    "django.contrib.gis",
     # Thirdpaty
     "django_extensions",
     "rest_framework",
+    "rest_framework_gis",
     "webpack_loader",
     "leaflet",
     # custom
@@ -106,7 +107,7 @@ WSGI_APPLICATION = "wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
         "NAME": config("POSTGRES_DB"),
         "USER": config("POSTGRES_USER"),
         "PASSWORD": config("POSTGRES_PASSWORD"),
@@ -271,3 +272,10 @@ WEBPACK_LOADER = {
 
 GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY", default=None)
 LEAFLET_CONFIG = {"PLUGINS": {"forms": {"auto-include": True}}, "RESET_VIEW": False}
+
+LEAFLET_WIDGET_ATTRS = {
+    "map_height": "500px",
+    "map_width": "100%",
+    "display_raw": "true",
+    "map_srid": 4326,
+}

@@ -1,5 +1,4 @@
 from django.utils.timezone import datetime
-from drf_extra_fields.geo_fields import PointField
 from rest_framework import serializers
 
 from . import models
@@ -18,7 +17,9 @@ class UserAttendanceListSerializer(ReadOnlyModelSerializer):
 
     class Meta:
         model = models.Attendance
-        exclude = ("id", "created", "modified", "user", "location", "location_meta")
+        id_field = False
+        geo_field = "location"
+        exclude = ("id", "created", "modified", "user", "location_meta")
 
 
 def today_date():

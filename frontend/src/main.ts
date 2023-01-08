@@ -9,7 +9,7 @@ import './assets/base.css'
 createApp(App).use(store).use(router)
 .use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyCcX-UvqSA_VwA1SNm9VfAcVj38RmG9QlI",
+    key: process.env.VUE_APP_GOOGLE_MAPS_API_KEY,
     libraries: "places"
   }
 }).mount('#app')

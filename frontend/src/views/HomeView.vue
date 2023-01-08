@@ -1,22 +1,5 @@
 <template>
   <div class="home">
-    <!--
-    <pre v-if="geoData.coords">
-      latitude: {{ geoData.coords.latitude }}
-      longitude: {{ geoData.coords.longitude }}
-      accuracy: {{ geoData.coords.accuracy }}
-      altitude: {{ geoData.coords.altitude }}
-      altitudeAccuracy: {{ geoData.coords.altitudeAccuracy }}
-      heading: {{ geoData.coords.heading }}
-      speed: {{ geoData.coords.speed }}
-    </pre>
-    <br>
-    <br>
-    {{ center }}
-    <br> -->
-    <!-- <GoogleMap :key="`${center.lat}-${center.lng}`" api-key="AIzaSyCcX-UvqSA_VwA1SNm9VfAcVj38RmG9QlI" style="width: 100%; height: 500px" :center="center" :zoom="15">
-      <Marker :options="{ position: center }" />
-    </GoogleMap> -->
     <div
       class="relative flex justify-center items-center mx-auto m-12"
       style="width: 800px; height: 500px"
@@ -52,6 +35,11 @@
         </GMapMap>
       </div>
     </div>
+    <div class="text-left mx-auto" style="width: 800px; height: 500px">
+      <div v-for="(value, key) in cleanAddress" :key="key" v-show="value">
+        {{ key }} : <strong> {{ value }}</strong>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -67,17 +55,47 @@ const geoData = reactive({
   pause: null,
 });
 const center = reactive({ lat: 19.426954760386632, lng: 72.80847745404989 });
+const cleanAddress = reactive({
+  StreetNumber: null,
+  StreetName: null,
+  City: null,
+  State: null,
+  Zip: null,
+  Country: null,
+});
+function placeToAddress(place: any) {
+  var address: any = {};
+  place.address_components.forEach(function (c: any) {
+    switch (c.types[0]) {
+      case "street_number":
+        address.StreetNumber = c;
+        break;
+      case "route":
+        address.StreetName = c;
+        break;
+      case "neighborhood":
+      case "locality": // North Hollywood or Los Angeles?
+        address.City = c;
+        break;
+      case "administrative_area_level_1": //  Note some countries don't have states
+        address.State = c;
+        break;
+      case "postal_code":
+        address.Zip = c;
+        break;
+      case "country":
+        address.Country = c;
+        break;
+    }
+  });
+  return address;
+}
 function setPlace(data) {
   console.log(data);
   center.lat = data.geometry.location.lat();
   center.lng = data.geometry.location.lng();
+  Object.keys(placeToAddress(data)).forEach((key) => {
+    cleanAddress[key] = placeToAddress(data)[key].long_name;
+  });
 }
-
-// const getLocation = () => {
-//   const { coords, locatedAt, error, resume, pause } = useGeolocation()
-
-//   Object.assign(geoData, { coords, locatedAt, error, resume, pause })
-// }
-
-
 </script>

@@ -168,7 +168,15 @@
                 whitespace-nowrap
               "
             >
-            {{ att.formatted_address }}
+            <GMapMap
+            :center="center"
+            :zoom="10"
+            map-type-id="terrain"
+            style="width: 400px; height: 400px"
+          >
+            <GMapMarker :position="{  lng: att.location.coordinates[0], lat: att.location.coordinates[1], }" />
+          </GMapMap>
+
             </td>
             </tr>
           </tbody>
@@ -183,6 +191,7 @@ import { useFetch } from "@vueuse/core";
 import { useGeolocation } from "@vueuse/core";
 import api from "../hooks/api";
 
+const center = reactive({ lat: 19.426954760386632, lng: 72.80847745404989 });
 const userAttedance = reactive({
   attendanceHistory: null,
   todayAttendance: null,
@@ -211,8 +220,8 @@ async function postCheckIn() {
 function showPosition(position: GeolocationPosition) {
   const { coords } = position;
   attendanceFormData.location.coordinates = [
-    coords?.latitude,
     coords?.longitude,
+    coords?.latitude,
   ];
   postCheckIn();
 }

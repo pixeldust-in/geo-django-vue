@@ -1,10 +1,11 @@
 from typing import List
 
+from django.contrib.gis.db.models import PointField
 from django.db import models
-from djgeojson.fields import PointField
+from geopy.distance import lonlat
 
 from core.mixins import AbstractTrack
-from services.location import get_location_from_coords
+from services.geo import get_location_from_coords
 
 
 # Create your models here.
@@ -15,7 +16,7 @@ class Attendance(AbstractTrack):
     date = models.DateField()
     check_in = models.TimeField()
     check_out = models.TimeField(null=True, blank=True)
-    location = PointField()
+    location = PointField(srid=4326, null=True, blank=True)
     location_meta = models.JSONField(default=dict, null=True, blank=True)
 
     class Meta:
@@ -25,10 +26,17 @@ class Attendance(AbstractTrack):
         return f"{self.user.full_name} - {self.date}"
 
     def save(self, *args, **kwargs):
-        if not self.pk:
-            lat, lng = self.location["coordinates"]
+        if not self.pk and self.location and self.location.coords:
+            lng, lat = list(self.location.coords)
             self.location_meta = get_location_from_coords(lat, lng)
         super().save(*args, **kwargs)
 
     def formatted_address(self) -> str:
         return self.location_meta.get("formatted_address", "")
+
+    @property
+    def lat_lng(self) -> List[float]:
+        if self.location and self.location.coords:
+            lng, lat = list(self.location.coords)
+            return [lat, lng]
+        return None

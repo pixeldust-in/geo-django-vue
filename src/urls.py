@@ -16,6 +16,9 @@ router.registry.extend(attendance_router.registry)
 
 urlpatterns = [
     path("super-manager/", admin.site.urls),
+    # Thirdparty
+    path("auth/signup/", core_views.notfoundview),
+    path("auth/", include("allauth.urls")),
     # apps
     path("api/", include(router.urls)),
     path("api/attendance/", include("attendance.urls")),

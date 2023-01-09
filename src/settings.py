@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 
 from decouple import Csv, config
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,12 +59,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.gis",
+    "django.contrib.sites",
     # Thirdpaty
     "django_extensions",
     "rest_framework",
     "rest_framework_gis",
     "webpack_loader",
     "leaflet",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
     # custom
     "core",
     "attendance",
@@ -278,4 +283,24 @@ LEAFLET_WIDGET_ATTRS = {
     "map_width": "100%",
     "display_raw": "true",
     "map_srid": 4326,
+}
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+# Django all auth config
+LOGIN_URL = reverse_lazy("account_login")
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy("account_login")
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_FORMS = {
+    "login": "core.forms.CustomLoginForm",
+    "signup": "core.forms.CustomSignupForm",
 }

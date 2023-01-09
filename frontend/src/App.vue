@@ -2,6 +2,8 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/attendance">Attendance</router-link>
+    |
+    <a href="/auth/logout">Logout</a>
   </nav>
   <router-view/>
 </template>

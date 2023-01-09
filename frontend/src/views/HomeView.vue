@@ -19,6 +19,7 @@
           absolute
           z-10
         "
+        :options="{componentRestrictions: {country: 'in'}}"
       >
       </GMapAutocomplete>
       <br />
@@ -30,6 +31,7 @@
           :zoom="15"
           map-type-id="terrain"
           style="width: 800px; height: 500px"
+
         >
           <GMapMarker :position="center" />
         </GMapMap>

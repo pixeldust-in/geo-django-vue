@@ -174,7 +174,11 @@
             map-type-id="terrain"
             style="width: 400px; height: 400px"
           >
-            <GMapMarker :position="{  lng: att.location.coordinates[0], lat: att.location.coordinates[1], }" />
+           <GMapCircle
+        :radius="1000"
+        :center="{  lng: att.location.coordinates[0], lat: att.location.coordinates[1], }"
+    />
+            <!-- <GMapMarker :position="{  lng: att.location.coordinates[0], lat: att.location.coordinates[1], }" /> -->
           </GMapMap>
 
             </td>

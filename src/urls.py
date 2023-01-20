@@ -22,6 +22,8 @@ urlpatterns = [
     # apps
     path("api/", include(router.urls)),
     path("api/attendance/", include("attendance.urls")),
+    path("", include("invitations.urls")),
+    # Others
     path("", core_views.root, name="home_redirect"),
     re_path(r"^app.*", core_views.home, name="home"),
     path(
@@ -32,6 +34,7 @@ urlpatterns = [
                 "site_header": "Geo Attendance App",
             },
         ),
+        name="homepage",
     ),
 ]
 

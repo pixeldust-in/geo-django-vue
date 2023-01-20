@@ -39,14 +39,14 @@ X_FRAME_OPTIONS = "DENY"
 
 # Email config
 EMAIL_BACKEND = config(
-    "EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
+    "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
 )
 EMAIL_HOST = config("EMAIL_HOST", default="localhost")
 EMAIL_PORT = config("EMAIL_PORT", default=2525, cast=int)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER", default=None)
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
+DEFAULT_FROM_EMAIL = config("EMAIL_HOST_USER", default=None)
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = config("EMAIL_HOST_PASSWORD", default=None)
 
 SITE_ID = 1
 # Application definition
@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     "django.contrib.gis",
     "django.contrib.sites",
     # Thirdpaty
+    "django_celery_results",
+    "django_celery_beat",
     "django_extensions",
     "rest_framework",
     "rest_framework_gis",
@@ -72,6 +74,7 @@ INSTALLED_APPS = [
     # custom
     "core",
     "attendance",
+    "invitations",
     # Keep this at the end
     "django_cleanup.apps.CleanupConfig",
 ]
@@ -237,8 +240,25 @@ REST_FRAMEWORK = {
 }
 
 # Redis config
-REDIS_CONN_STRING = config("REDIS_CONN_STRING", default="redis://localhost:6379")
+# Redis config
+REDIS_URL_SCHEME = config("REDIS_URL_SCHEME", default="redis")
+REDIS_HOST = config("REDIS_HOST", default="localhost")
+REDIS_PASSWORD = config("REDIS_PASSWORD", default="")
+REDIS_PORT = config("REDIS_PORT", cast=int, default=6379)
 REDIS_CACHE_STORE = config("REDIS_CACHE_STORE", cast=int, default=0)
+REDIS_CONN_STRING = f"{REDIS_URL_SCHEME}://:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/{REDIS_CACHE_STORE}"
+
+
+# CELERY Configurations
+CELERY_BROKER_URL = REDIS_CONN_STRING
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_CACHE_BACKEND = "default"
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_SEND_TASK_ERROR_EMAILS = True
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_TASK_ACKS_LATE = True
 
 
 # Redis Cache backend
@@ -304,3 +324,8 @@ ACCOUNT_FORMS = {
     "login": "core.forms.CustomLoginForm",
     "signup": "core.forms.CustomSignupForm",
 }
+
+# Invitaion
+INVITATION_EXPIRY_DAYS = 3
+EMAIL_MAX_LENGTH = 254
+INVITATION_EMAIL_SUBJECT = "Invitation to join"

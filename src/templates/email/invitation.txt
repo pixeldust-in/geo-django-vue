@@ -1,0 +1,9 @@
+Hello {{user_fullname}},
+<br/>
+<br/>
+{{inviter_full_name}}, has invited you to join application!
+<br/>
+Click on the link below to join & set your password.
+<br/>
+<br/>
+{{invite_url}}

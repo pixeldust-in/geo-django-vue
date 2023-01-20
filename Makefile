@@ -46,3 +46,10 @@ db:
 # target: edit - Decrypt and edit ansible secrets file
 update_env_secrets:
 	export EDITOR='code -w' && ansible-vault edit deploy/group_vars/dev.yml
+
+
+celery:
+	celery -A src worker -l info --beat --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+celery_dev:
+	watchmedo auto-restart -d . -p "*.py" --recursive -- celery -A src worker -l info --beat --scheduler django_celery_beat.schedulers:DatabaseScheduler

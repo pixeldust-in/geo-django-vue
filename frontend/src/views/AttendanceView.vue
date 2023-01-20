@@ -169,7 +169,7 @@
               "
             >
             <GMapMap
-            :center="center"
+            :center="{  lng: att.location.coordinates[0], lat: att.location.coordinates[1], }"
             :zoom="10"
             map-type-id="terrain"
             style="width: 400px; height: 400px"

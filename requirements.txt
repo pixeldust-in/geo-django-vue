@@ -22,7 +22,7 @@ geopy==2.3.0
 
 # Production Server
 gunicorn==19.9.*
-Pillow==8.3.2
+Pillow==9.5.0
 
 # Custom Pixeldust Package
 
